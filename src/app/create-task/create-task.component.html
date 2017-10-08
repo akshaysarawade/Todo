@@ -1,0 +1,41 @@
+<form class="form-horizontal" [formGroup]="taskForm" (ngSubmit)="addTask()">
+
+  <!-- Category DD -->
+  <div class="form-group">
+    <label for="categoryDD" class="control-label col-md-2">Select Category:</label>
+    <div class="col-md-4">
+      <select name="categoryDD" id="categoryDD" class="form-control" formControlName="category">
+        <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+      </select>
+      <span class="help-block" *ngIf="!taskForm.get('category').valid && taskForm.get('category').touched">
+        Please select a category
+      </span>
+    </div>
+  </div>
+
+  <!-- Description -->
+  <div class="form-group">
+    <label for="description" class="control-label col-md-2">Description:</label>
+    <div class="col-md-4">
+      <input type="text" class="form-control" id="description" formControlName="description">
+      <span class="help-block" *ngIf="!taskForm.get('description').valid && taskForm.get('description').touched">
+        Please select a description!
+      </span>
+    </div>
+  </div>
+
+  <!-- Date field -->
+  <div class="form-group">
+    <label for="dueDate" class="control-label col-md-2" >Due Date:</label>
+    <div class="col-md-4">
+      <input type="date" format="yyyy-mm-dd" class="form-control" id="dueDate" formControlName="dueDate">
+    </div>
+  </div>
+
+  <!-- Submit button -->
+  <div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+      <button class="btn btn-success" type="submit">Submit</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <div class="panel-heading">List of tasks</div>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <tr>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Due Date</th>
+        <th>Status</th>
+        <th>Toggle</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <tr app-task *ngFor="let task of (taskState | async).tasks" [task]="task"></tr>
+    </table>
+  </div>
+</div>
